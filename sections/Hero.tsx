@@ -5,7 +5,7 @@ import React from "react";
 
 const Hero = () => {
   return (
-    <section className="w-full bg-black flex gap-20 mt-20 px-10 py-10">
+    <section className="w-full bg-black flex gap-20 mt-20 px-10 py-40">
       <div className="flex flex-col max-w-4xl gap-6">
         <h1 className="text-white font-bold capitalize sm:text-4xl lg:text-6xl leading-18">
           Sharpen coding knowledge one question at a time
