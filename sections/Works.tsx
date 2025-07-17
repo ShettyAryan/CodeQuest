@@ -4,7 +4,7 @@ import React from "react";
 
 const Works = () => {
   return (
-    <section className="bg-[#111827] w-full px-10 py-30 flex flex-col items-center justify-center font-semibold gap-10">
+    <section className="bg-[#111827] w-full px-10 py-50 flex flex-col items-center justify-center font-semibold gap-10">
       <h2 className="text-white text-5xl text-center max-md:text-4xl">
         How it Works?
       </h2>
