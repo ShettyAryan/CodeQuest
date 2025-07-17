@@ -20,7 +20,7 @@ const Hero = () => {
           className="bg-blue-500 px-5 py-3 hover:no-underline hover:scale-105 transition duration-200 w-50 h-15 max-md:w-25 max-md:h-7.5"
         >
           <Link
-            href={"#"}
+            href={"/generate"}
             className="text-white no-underline text-xl max-md:text-sm"
           >
             Start Solving

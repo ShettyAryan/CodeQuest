@@ -16,7 +16,7 @@ const Ready = () => {
         asChild
         className="bg-blue-500 px-10 py-3 hover:no-underline hover:scale-105 transition duration-200 w-60 h-15"
       >
-        <Link href={"#"} className="text-white no-underline text-xl">
+        <Link href={"/generate"} className="text-white no-underline text-xl">
           Start your Journey
         </Link>
       </Button>

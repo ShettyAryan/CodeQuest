@@ -1,5 +1,6 @@
 "use client";
 import { Button } from "@/components/ui/button";
+import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
@@ -38,29 +39,36 @@ const Navbar = () => {
           Home
         </Link>
         <Link
-          href={"#"}
+          href={"/generate"}
           className="md:text-lg text-sm text-gray-300 hover:text-gray-50 transition duration-200"
         >
           Generate
         </Link>
         <Link
-          href={"#"}
+          href={"/history"}
           className="md:text-lg text-sm text-gray-300 hover:text-gray-50 transition duration-200"
         >
           History
         </Link>
-        <Button
-          variant={"link"}
-          asChild
-          className="bg-blue-500 px-5 py-3 hover:no-underline hover:scale-105 transition duration-200"
-        >
-          <Link
-            href={"#"}
-            className="text-white no-underline text-sm md:text-lg"
-          >
-            LogIn
-          </Link>
-        </Button>
+        <div>
+          <SignedIn>
+            <UserButton />
+          </SignedIn>
+          <SignedOut>
+            <Button
+              variant={"link"}
+              asChild
+              className="bg-blue-500 px-5 py-3 hover:no-underline hover:scale-105 transition duration-200"
+            >
+              <Link
+                href={"/signin"}
+                className="text-white no-underline text-sm md:text-lg"
+              >
+                LogIn
+              </Link>
+            </Button>
+          </SignedOut>
+        </div>
       </div>
     </div>
   );
