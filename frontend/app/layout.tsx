@@ -7,6 +7,7 @@ import { ClerkProvider } from "@clerk/nextjs";
 const poppins = Poppins({
   variable: "--font-poppins",
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
