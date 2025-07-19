@@ -1,7 +1,7 @@
 "use client";
 import MCQChallenge from "@/sections/MCQChallenge";
 import { useApi } from "@/util/api";
-import { RedirectToSignIn, SignedIn, SignedOut } from "@clerk/nextjs";
+import { SignedIn, SignedOut } from "@clerk/nextjs";
 
 import React, { useCallback, useEffect, useState } from "react";
 
@@ -76,7 +76,11 @@ const History = () => {
         </div>
       </SignedIn>
       <SignedOut>
-        <RedirectToSignIn />
+        <div className="h-screen w-full bg-black flex items-center justify-center">
+          <h1 className="text-5xl text-white text-center ">
+            Please Login or Signup to Continue :){" "}
+          </h1>
+        </div>
       </SignedOut>
     </>
   );

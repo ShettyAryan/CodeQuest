@@ -3,7 +3,7 @@
 import MCQChallenge from "@/sections/MCQChallenge";
 import React, { useCallback, useEffect, useState } from "react";
 import { useApi } from "@/util/api";
-import { RedirectToSignUp, SignedIn, SignedOut } from "@clerk/nextjs";
+import { SignedIn, SignedOut } from "@clerk/nextjs";
 
 type QuotaType = {
   quota_remaining: number;
@@ -121,7 +121,11 @@ const Generate = () => {
         </div>
       </SignedIn>
       <SignedOut>
-        <RedirectToSignUp />
+        <div className="h-screen w-full bg-black flex items-center justify-center">
+          <h1 className="text-5xl text-white text-center ">
+            Please Login or Signup to Continue :){" "}
+          </h1>
+        </div>
       </SignedOut>
     </>
   );
