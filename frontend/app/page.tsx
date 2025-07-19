@@ -6,7 +6,7 @@ import Works from "@/sections/Works";
 
 export default function Home() {
   return (
-    <div className="w-full relative bg-black">
+    <div className="w-full relative bg-black min-h-screen">
       <Hero />
       <Works />
       <Ready />

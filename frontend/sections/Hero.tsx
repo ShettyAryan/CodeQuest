@@ -5,7 +5,7 @@ import React from "react";
 
 const Hero = () => {
   return (
-    <section className="w-full bg-black flex gap-20 px-20 py-60">
+    <section className="w-full bg-black flex gap-20 px-20 py-80">
       <div className="flex flex-col max-w-4xl gap-6">
         <h1 className="text-white font-bold capitalize text-5xl lg:text-6xl lg:leading-18 md:leading-10 sm:leading-9">
           Sharpen coding knowledge one question at a time
@@ -27,13 +27,13 @@ const Hero = () => {
           </Link>
         </Button>
       </div>
-      <div className="">
+      <div className="hidden lg:block px-4 w-5xl">
         <Image
-          src={"/assets/landing-img.png"}
+          src="/assets/landing-img.png"
           alt="landing_image"
-          width={700}
-          height={900}
-          className="hidden lg:block w-400 h-100"
+          width={400}
+          height={600}
+          className="w-full max-w-4xl h-auto"
         />
       </div>
     </section>

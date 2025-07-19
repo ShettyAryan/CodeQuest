@@ -56,18 +56,22 @@ const MCQChallenge = ({
         {challenge.title}
       </div>
 
-      <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-2 px-10 py-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-4 px-6 py-6">
         {options.map((option, index: string | null) => (
           <div
-            className={`w-2xl px-2 py-5 text-white text-lg cursor-pointer rounded transition-colors duration-300 ${getOptionClass(
-              index
-            )}`}
             key={index}
-            onClick={() => {
-              handleOptionSelect(index);
-            }}
+            onClick={() => handleOptionSelect(index)}
+            className={`
+        px-4 py-6 
+        text-white text-base sm:text-lg 
+        cursor-pointer rounded-xl 
+        transition-colors duration-300 
+        text-center break-words 
+        shadow-md 
+        ${getOptionClass(index)}
+      `}
           >
-            {option}
+            <p className="px-2">{option}</p>
           </div>
         ))}
       </div>

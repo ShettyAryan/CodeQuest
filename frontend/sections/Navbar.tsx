@@ -21,7 +21,7 @@ const Navbar = () => {
         scrolled ? "bg-black/60" : "bg-black/90"
       }`}
     >
-      <div className="flex items-center justify-center gap-2">
+      <Link href={"/"} className="flex items-center justify-center gap-2">
         <Image
           src={"/assets/codelogo.png"}
           alt="logo"
@@ -30,10 +30,10 @@ const Navbar = () => {
           className="w-10 h-10"
         />
         <span className="text-xl text-white font-semibold">CodeQuest</span>
-      </div>
+      </Link>
       <div className="flex items-center justify-center gap-4">
         <Link
-          href={"#"}
+          href={"/"}
           className="md:text-lg text-sm text-gray-300 hover:text-gray-50 transition duration-200"
         >
           Home
