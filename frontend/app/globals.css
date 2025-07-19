@@ -8,6 +8,17 @@
     font-family: var(--font-poppins);
   }
 }
+.option {
+  background-color: #334155; /* default */
+}
+
+.option.correct {
+  background-color: #22c55e; /* green-500 */
+}
+
+.option.incorrect {
+  background-color: #ef4444; /* red-500 */
+}
 
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
