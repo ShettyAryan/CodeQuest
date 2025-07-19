@@ -31,7 +31,7 @@ const History = () => {
     } finally {
       setIsLoading(false);
     }
-  }, [makeRequest]);
+  }, []);
 
   useEffect(() => {
     fetchHistory();
