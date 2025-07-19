@@ -1,3 +1,4 @@
+"use client";
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import Navbar from "@/sections/Navbar";
@@ -21,8 +22,13 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const publishableKey = process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY;
+  if (!publishableKey) {
+    console.warn("Clerk publishable key is missing");
+    return <>{children}</>; // Render fallback during build
+  }
   return (
-    <ClerkProvider>
+    <ClerkProvider publishableKey={publishableKey}>
       <html lang="en">
         <body className={`${poppins.variable} font-poppins antialiased`}>
           <Navbar />
