@@ -5,9 +5,19 @@ import { RedirectToSignIn, SignedIn, SignedOut } from "@clerk/nextjs";
 
 import React, { useCallback, useEffect, useState } from "react";
 
+interface Challenge {
+  id: number;
+  title: string;
+  options: string[] | string;
+  correct_answer_id: number;
+  explanation: string;
+  difficulty: string;
+  last_reset_date?: string;
+}
+
 const History = () => {
   const { makeRequest } = useApi();
-  const [history, setHistory] = useState<[]>([]);
+  const [history, setHistory] = useState<Challenge[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
