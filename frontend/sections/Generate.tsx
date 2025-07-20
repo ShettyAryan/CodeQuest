@@ -60,57 +60,66 @@ const Generate = () => {
   };
   return (
     <div className="pt-2 bg-black min-h-screen">
-      <div className="flex flex-col gap-10 items-center justify-center lg:min-h-[80vh] pb-8">
-        <div className="bg-[#1E293B] w-100 h-15 rounded-full flex gap-4 items-center justify-center">
-          <p className="text-lg font-normal text-gray-300 px-2 text-center">
+      <div className="flex flex-col gap-6 md:gap-10 items-center justify-center lg:min-h-[80vh] pb-6 md:pb-8 px-4 sm:px-6">
+        {/* Quota Remaining */}
+        <div className="bg-[#1E293B] w-full max-w-md h-12 md:h-15 rounded-full flex items-center justify-center">
+          <p className="text-sm md:text-lg font-normal text-gray-300 px-4 text-center">
             You have {quota?.quota_remaining || 0} challenges remaining! 🔥
           </p>
         </div>
+
+        {/* Reset Time */}
         {quota?.quota_remaining === 0 && (
-          <p className="text-lg font-normal text-gray-300 px-2 text-center">
-            The Next reset is :{getNextResetTime()?.toLocaleString()}{" "}
+          <p className="text-sm md:text-lg font-normal text-gray-300 px-2 text-center">
+            Next reset: {getNextResetTime()?.toLocaleString()}
           </p>
         )}
-        <div className="bg-[#1E293B] min-h-[20vw] min-w-[90vw] px-20 flex flex-col items-center py-10 gap-2 rounded-xl">
-          <h1 className="text-white text-4xl">Generate Challenge</h1>
-          <p className="text-gray-400 text-md font-normal py-3">
+
+        {/* Main Card */}
+        <div className="bg-[#1E293B] w-full max-w-4xl min-h-[40vh] md:min-h-[20vw] px-4 sm:px-8 md:px-12 lg:px-20 flex flex-col items-center py-6 md:py-10 gap-2 rounded-xl">
+          <h1 className="text-white text-2xl sm:text-3xl md:text-4xl text-center">
+            Generate Challenge
+          </h1>
+          <p className="text-gray-400 text-sm md:text-md font-normal py-2 md:py-3 text-center">
             Choose your difficulty level
           </p>
-          <div className="w-full px-5 py-4 text-white flex flex-col items-center">
+
+          {/* Select Input */}
+          <div className="w-full px-2 sm:px-5 py-2 md:py-4 text-white flex flex-col items-center">
             <select
               name="difficulty"
               id="difficulty"
               onChange={(e) => setDifficulty(e.target.value)}
               disabled={isLoading}
-              className="border border-white w-80 h-10 rounded-full text-center appearance-none bg-black"
+              className="border border-white w-full max-w-xs h-10 rounded-full text-center appearance-none bg-black px-4"
             >
               <option value="" disabled>
                 Select an Option
               </option>
-              <option value="easy" className="text-white">
-                Easy
-              </option>
-              <option value="medium" className="text-white">
-                Medium
-              </option>
-              <option value="expert" className="text-white">
-                Expert
-              </option>
+              <option value="easy">Easy</option>
+              <option value="medium">Medium</option>
+              <option value="expert">Expert</option>
             </select>
           </div>
+
+          {/* Generate Button */}
           <button
             onClick={generateChallenge}
             disabled={isLoading || quota?.quota_remaining === 0}
-            className="text-md max-sm:text-xs text-white bg-blue-500 sm:w-50 md:w-50 py-2 px-2 rounded-lg"
+            className="w-full max-w-xs text-sm sm:text-md text-white bg-blue-500 hover:bg-blue-600 py-2 px-4 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {isLoading ? "Generating..." : "Generate Challenge"}
           </button>
+
+          {/* Error Message */}
           {error && (
-            <p className="text-red-500 text-center font-medium text-md max-sm:text-xs">
+            <p className="text-red-500 text-center font-medium text-sm sm:text-md mt-2">
               {error}
             </p>
           )}
         </div>
+
+        {/* Challenge Display */}
         {challenge && <MCQChallenge challenge={challenge} showExplaination />}
       </div>
     </div>

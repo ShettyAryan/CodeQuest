@@ -48,37 +48,48 @@ const MCQChallenge = ({
     return "option";
   };
   return (
-    <div className="bg-[#1E293B] flex flex-col items-center">
-      <p className="text-lg font-medium text-white py-2 capitalize">
-        Difficulty : {challenge.difficulty}
-      </p>
-      <div className="min-h-[40px] w-full px-10 text-white font-bold text-xl">
+    <div className="bg-[#1E293B] flex flex-col items-center w-full rounded-lg overflow-hidden shadow-lg">
+      {/* Difficulty Header */}
+      <div className="w-full bg-[#0F172A] px-4 py-3 text-center">
+        <p className="text-base sm:text-lg font-medium text-white capitalize">
+          Difficulty: {challenge.difficulty}
+        </p>
+      </div>
+
+      {/* Question Title */}
+      <div className="min-h-[50px] w-full px-4 sm:px-6 md:px-10 py-4 text-white font-bold text-lg sm:text-xl text-center">
         {challenge.title}
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-4 px-6 py-6">
-        {options.map((option, index: string | null) => (
+      {/* Options Grid */}
+      <div className="w-full grid grid-cols-1 sm:grid-cols-2 gap-3 px-4 sm:px-6 py-4">
+        {options.map((option, index) => (
           <div
             key={index}
             onClick={() => handleOptionSelect(index)}
             className={`
-        px-4 py-6 
-        text-white text-base sm:text-lg 
-        cursor-pointer rounded-xl 
-        transition-colors duration-300 
-        text-center break-words 
-        shadow-md 
-        ${getOptionClass(index)}
-      `}
+          px-4 py-4 sm:py-5
+          text-white text-sm sm:text-base md:text-lg
+          cursor-pointer rounded-lg
+          transition-all duration-200
+          text-center break-words
+          shadow-md hover:scale-[1.02]
+          ${getOptionClass(index)}
+          min-h-[80px] flex items-center justify-center
+        `}
           >
             <p className="px-2">{option}</p>
           </div>
         ))}
       </div>
+
+      {/* Explanation Section */}
       {shouldShowExplaination && selectedOption !== null && (
-        <div className="bg-[#0F172A] w-full px-10 py-10 flex flex-col gap-3">
-          <h4 className="text-xl font-semibold text-white">Explaination:</h4>
-          <p className="text-lg font-medium text-gray-400">
+        <div className="bg-[#0F172A] w-full px-4 sm:px-6 md:px-10 py-6 flex flex-col gap-3">
+          <h4 className="text-lg sm:text-xl font-semibold text-white">
+            Explanation:
+          </h4>
+          <p className="text-base sm:text-lg text-gray-300 leading-relaxed">
             {challenge.explanation}
           </p>
         </div>

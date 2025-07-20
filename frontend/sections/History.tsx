@@ -49,24 +49,27 @@ const History = () => {
     );
   }
   return (
-    <div className="bg-black min-h-screen flex items-center flex-col gap-4 pt-30">
-      <div className="bg-[#1E293B] max-w-[90vw] py-10 px-10 rounded-xl">
-        <h2 className="text-5xl text-white text-center">History</h2>
+    <div className="bg-black min-h-screen flex items-center flex-col gap-6 pt-16 sm:pt-24 md:pt-30 px-4 sm:px-6">
+      <div className="bg-[#1E293B] w-full max-w-6xl py-8 sm:py-10 px-4 sm:px-6 md:px-8 lg:px-10 rounded-xl">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl text-white text-center mb-6 sm:mb-8">
+          History
+        </h2>
+
         {history.length === 0 ? (
-          <p className="text-lg font-medium text-gray-300">
-            No Challenge History
-          </p>
+          <div className="flex justify-center py-8 sm:py-12">
+            <p className="text-base sm:text-lg md:text-xl text-gray-300 text-center">
+              No Challenge History
+            </p>
+          </div>
         ) : (
-          <div className="px-20 py-10 flex flex-col gap-4 max-sm:px-2 max-sm:py-5">
-            {history.map((challenge) => {
-              return (
-                <MCQChallenge
-                  challenge={challenge}
-                  key={challenge.id}
-                  showExplaination
-                />
-              );
-            })}
+          <div className="space-y-4 sm:space-y-6 py-4 sm:py-6 md:py-8">
+            {history.map((challenge) => (
+              <MCQChallenge
+                challenge={challenge}
+                key={challenge.id}
+                showExplaination
+              />
+            ))}
           </div>
         )}
       </div>
